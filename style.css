@@ -137,7 +137,7 @@ li button:hover,
 }
 
 .produtos li p:last-child,
-span {
+.card-price {
   font-weight: 600;
   font-size: 20px;
   margin-left: 5px;
@@ -189,7 +189,8 @@ footer {
   font-weight: 600;
   border-color: rgba(168, 164, 164, 1);
   border: 0.5px;
-  width: 397px;
+  min-width: 397px;
+  width: 100%;
   border-radius: 5px;
   padding: 15px;
 
@@ -201,8 +202,10 @@ footer {
   background-color: #5CA720;
   color: rgba(255, 255, 255, 1);
   border: none;
+  padding: 15px;
   border-radius: 0px, 5px, 5px, 0px;
-  width: 152px;
+  max-width: 152px;
+  width: 100%;
   cursor: pointer;
   transition: all ease 0.3s;
 }
@@ -227,4 +230,86 @@ footer {
   display: flex;
   align-items: center;
   gap: 24px;
+}
+
+.card-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover span {
+  width: 303px;
+  height: 303px;
+  background-color: green;
+  display: block;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+  position: absolute;
+}
+
+.card-hover:has(img:hover) span {
+  transform: translateY(-101%);
+  opacity: 0.6;
+}
+
+.card-hover span:hover {
+  transform: translateY(-101%);
+  opacity: 0.6;
+}
+
+
+/* RESPONSIVO */
+
+@media (width < 1080px) {
+  .produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .produtos img {
+    width: 250px;
+  }
+
+  .produtos li p:first-of-type {
+    font-size: 16px;
+  }
+
+  .produtos li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .produtos li:nth-child(3),
+  .produtos li:nth-child(6),
+  .produtos li:nth-child(9) {
+    align-items: center;
+  }
+
+  .footer-methods {
+    display: block;
+  }
+
+  .lista-footer {
+    padding-bottom: 44px;
+  }
+
+  .newsletter .input-button-container {
+    flex-direction: column;
+    gap: 17px;
+  }
+
+  .newsletter button {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .newsletter input {
+    max-width: initial;
+  }
+}
+
+@media (width < 764px) {
+  .produtos {
+    grid-template-columns: 1fr;
+  }
 }
